@@ -1,107 +1,66 @@
-# 🌟 KRISH X STAR - Telegram Music Bot 🌟
+<h2 align="center">
+    👑 KRISH STAR MUSIC 👑
+<br>
+★ 𝙷𝙴𝚁𝙾𝙺𝚄 + 𝚅𝙿𝚂 ★
+</h2>
 
-import logging
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
+[![Typing SVG](https://readme-typing-svg.herokuapp.com/?lines=ㅤ+WELCOME+TO+KRISH+STAR+MUSIC+REPO;ㅤ+POWERFUL+TELEGRAM+MUSIC+BOT;🔥+FAST+AND+SMOOTH+STREAMING)](https://github.com/)
 
-import config
-from player import MusicPlayer
-from queue_manager import QueueManager
+<b>Telegram Group Calls Streaming Bot</b><br>
+Supports YouTube, Spotify, Apple Music, SoundCloud and M3U8 links.
 
-# 🔥 Logging
-logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger(__name__)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/sviru0048-netizen/KRISH_X_STAR_VIP_MUSIC_REPO/ALONE/file_00000000fdcc7208b69fcfacd439c437.png">
+</p>
 
-BOT_NAME = "✨ KRISH X STAR ✨"
+🎧 DEMO BOT ➣ https://t.me/YourBotLink
 
+<img src="https://readme-typing-svg.herokuapp.com?color=FF0000&width=420&lines=⚠️FORK+REPO+BEFORE+DEPLOY⚠️">
 
-# 🎵 MAIN BOT CLASS
-class KrishXStarBot:
-    def __init__(self):
-        self.player = MusicPlayer()
-        self.queue = QueueManager()
+KRISH STAR Music Bot lets you stream high-quality audio and video in Telegram VC.<br>
+Built with Python, Pyrogram, and Py-TgCalls.
 
-    # ───────── START ─────────
-    async def start(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        user = update.effective_user
+<hr>
 
-        text = f"""
-🌟 <b>WELCOME {user.first_name}</b> 🌟
+<h2>🔥 Features</h2>
 
-🎧 <b>KRISH X STAR MUSIC BOT</b>
-💫 Ultra Fast Music Experience
+- 🎧 Stream audio in Telegram VC  
+- 🌐 Supports YouTube, Spotify, Apple Music  
+- ⚡ Auto queue system  
+- ☁️ Works on VPS & Heroku  
+- ❤️ Fully customizable  
 
-━━━━━━━━━━━━━━
-🔥 Type /play song_name
-🎵 Enjoy unlimited music
-👑 Powered by KRISH
-━━━━━━━━━━━━━━
-"""
+<hr>
 
-        keyboard = [
-            [InlineKeyboardButton("🎵 Play Music", callback_data="play")],
-            [
-                InlineKeyboardButton("📜 Help", callback_data="help"),
-                InlineKeyboardButton("👑 Owner", callback_data="owner")
-            ],
-            [InlineKeyboardButton("⭐ GitHub", url=config.GITHUB_LINK)]
-        ]
+<h2>☁️ Deployment</h2>
 
-        await update.message.reply_text(
-            text,
-            reply_markup=InlineKeyboardMarkup(keyboard),
-            parse_mode="HTML"
-        )
+<h3 align="center">
+    🚀 DEPLOY ON HEROKU
+</h3>
 
-    # ───────── HELP ─────────
-    async def help(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        text = """
-🎵 <b>COMMANDS</b>
+[![Deploy](https://graph.org/file/826b0a2fc82db8328a113.png)](https://dashboard.heroku.com/new?template=https://github.com/sviru0048-netizen/KRISH_X_STAR_VIP_MUSIC_REPO)
 
-/play <name> - Play Song
-/pause - Pause
-/resume - Resume
-/skip - Skip Song
-/stop - Stop Music
-/queue - Show Queue
-"""
+<h2 align="center">
 
-        await update.message.reply_text(text, parse_mode="HTML")
+🔴 IF ANY ERROR THEN CONTACT 🔴  
 
-    # ───────── PLAY ─────────
-    async def play(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        query = " ".join(context.args)
+👉 https://t.me/YourUsername
 
-        if not query:
-            await update.message.reply_text("❌ Song name likho: /play song")
-            return
+</h2>
 
-        await update.message.reply_text(f"🎵 Searching: {query}")
+<h3 align="center">
+    💻 VPS / LOCAL HOST SETUP
+</h3>
 
-        result = await self.player.search_and_play(query, update.effective_chat.id)
+### 🔧 Quick Setup
 
-        if result:
-            await update.message.reply_text(f"▶️ Now Playing: {query}")
-        else:
-            await update.message.reply_text("❌ Song not found")
-
-    # ───────── STOP ─────────
-    async def stop(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        await self.player.stop(update.effective_chat.id)
-        await update.message.reply_text("⏹️ Stopped")
-
-    # ───────── PAUSE ─────────
-    async def pause(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        await self.player.pause(update.effective_chat.id)
-        await update.message.reply_text("⏸️ Paused")
-
-    # ───────── RESUME ─────────
-    async def resume(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        await self.player.resume(update.effective_chat.id)
-        await update.message.reply_text("▶️ Resumed")
-
-    # ───────── SKIP ─────────
-    async def skip(self, update: Update, context: ContextTypes.DEFAULT_TYPE):
-        song = await self.player.skip(update.effective_chat.id)
-        if song:
-            await
+```bash
+sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get install python3-pip ffmpeg -y
+sudo pip3 install -U pip
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash && source ~/.bashrc && nvm install v18
+git clone https://github.com/sviru0048-netizen/KRISH_X_STAR_VIP_MUSIC_REPO && cd KRISH_X_STAR_VIP_MUSIC_REPO
+pip3 install -U -r requirements.txt
+sudo apt install tmux -y && tmux
+bash setup
+bash start
